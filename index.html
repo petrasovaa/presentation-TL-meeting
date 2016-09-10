@@ -1,0 +1,1030 @@
+<!doctype html>
+<html lang="en">
+<!-- This is a generated file. Do not edit. -->
+
+    <head>
+        <meta charset="utf-8">
+
+        <title>The design and application of tangible user
+    interface for geospatial modeling and analyses</title>
+
+        <meta name="description" content="PhD committee meeting">
+        <meta name="author" content="Anna Petrasova">
+
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <link rel="stylesheet" href="css/reveal.css">
+        <link rel="stylesheet" href="css/theme/simple.css" id="theme">
+
+        <!-- For syntax highlighting -->
+        <link rel="stylesheet" href="lib/css/zenburn.css">
+        <!-- For chalkboard plugin -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+        <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+        <script>
+            if( window.location.search.match( /print-pdf/gi ) ) {
+                var link = document.createElement( 'link' );
+                link.rel = 'stylesheet';
+                link.type = 'text/css';
+                link.href = 'css/print/pdf.css';
+                document.getElementsByTagName( 'head' )[0].appendChild( link );
+            }
+        </script>
+
+        <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+
+        <style>
+        body {
+        /*background-color: #FFF !important;*/
+        /*
+          background-image: url("pictures/elevation-nagshead.gif");
+          background-repeat: no-repeat;
+          background-position: left bottom;*/
+        }
+        .reveal section img {
+            background: transparent;
+            border: 0;
+            box-shadow: 0 0 0 rgba(0, 0, 0, 0.15);
+        }
+        /* for standalone frame */
+        /*
+        iframe {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        */
+        /* display: inline; background-color: #002B36; padding: 0px; margin: 0px */
+        .rounded-corners {
+            border: 0px solid black;
+            border-radius: 5px;
+            -moz-border-radius: 5px;
+            -khtml-border-radius: 5px;
+            -webkit-border-radius: 5px;
+        }
+        a {
+            color: #060 !important;
+        }
+        a:hover {
+            color: #060 !important;
+            text-decoration: underline !important;
+        }
+        h1, h2, h3, h4, h5 {
+            text-transform: none !important;
+            /* word-break: keep-all; text-transform: none; font-size: 200%; line-height: 110%; */
+            color:  #383838 !important;
+            /* color: #444 !important; */ /* grey from the wab page */
+            font-weight: bold !important;
+            -webkit-hyphens: none !important;
+            -moz-hyphens: none !important;
+            -ms-hyphens: none !important;
+            hyphens: none !important;
+            line-height: 110% !important;
+        }
+        .reveal .progress span {
+            background-color: #060 !important;
+        }
+        /* predefined element positioning */
+        .top {
+            /*position: relative;*/
+            top: 5%;
+            height: 45%; /* is the height even needed? */
+        }
+        .bottom {
+            height: 45%;
+        }
+        .ne {
+            position: absolute;
+            top: 5%;
+            right: 5%;
+            height: 45%;
+            width: 45%;
+        }
+        .nw {
+            position: absolute;
+            top: 5%;
+            left: 5%;
+            height: 45%;
+            width: 45%;
+        }
+        .se {
+            position: absolute;
+            bottom: 5%;
+            right: 5%;
+            height: 45%;
+            width: 45%;
+        }
+        .sw {
+            position: absolute;
+            bottom: 5%;
+            left: 5%;
+            height: 45%;
+            width: 45%;
+        }
+
+        /* classes for sections with predefined elements */
+        /* using !important because, reveal styles are applied afterwards  */
+        .right, .textimg > img, .textimg > video, .textimg > iframe, .imgtext > p, .imgtext > ul, .imgtext > ol, .imgtext > div {
+            float: right;
+            text-align: left;
+            max-width: 47% !important;
+        }
+        .left, .imgtext > img, .imgtext > video, imgtext > iframe, .textimg > p, .textimg > ul, .textimg > ol, .textimg > div {
+            float: left;
+            text-align: left;
+            max-width: 47% !important;
+        }
+        li > ul, li > ol {
+            font-size: 85% !important;
+            line-height: 110% !important;
+        }
+        ul.pl li {padding-top: 30px !important;}
+        ul.ps li {padding-top: 10px !important;}
+        .small {
+            font-size: smaller !important;
+            color: gray;
+            margin: 0.1em !important;
+        }
+        .credit {
+            font-size: small !important;
+            color: gray;
+            margin: 0.1em !important;
+        }
+        </style>
+    </head>
+
+    <body>
+
+        <div class="reveal">
+
+            <!-- Any section element inside of this container is displayed as a slide -->
+            <div class="slides">
+<section>
+    <h3>The design and application of tangible user
+interface for geospatial modeling and analyses</h3>
+<br>
+    <h3 style="margin-top: 0.5em;">
+        Anna Petrášová</h3>
+
+    <p>September, 2016</p>
+</section>
+
+<section>
+<h2>Overview</h2>
+<!-- modeling and interacting with dynamic landscapes in space and time and their visualization -->
+</section>
+<section>
+<h2>Tangible Landscape</h2>
+<img class="stretch" src="images/TL_overview.jpg">
+<!-- Most of my research somehow  relates to TL, which has a long history
+and is rapidly evolving today and hopefully in the future.
+I will guide through the innovations I and the entire team achieved-->
+
+</section>
+
+<section>
+<h3>Urban growth modeling with FUTURES and Tangible Landscape</h3>
+<img class="stretch" src="images/FUTURES_overview.jpg">
+<!-- The other topic I will cover here is urban growth modeling -F which
+was developed at UNC Charlotte and moved later here with Ross as the leader.
+I was focusing on redesigning the modeling workflow
+to enable studying urbanizations on large scale and to make the modeling reproducible.
+ I was interested in connecting this and other complex spread models with Tangible L.-->
+</section>
+
+
+<section>
+<h4>Seamless fusion of real and virtual DEMs for multi-scale water flow
+and erosion modeling</h4>
+<img class="stretch" src="images/fusion_overview.jpg">
+<!-- With the new and exciting high-resolution data captured bu UAVs we now have available
+at CGA and  other data sources (lidar), I was looking into microtopography
+and how it affects topographic processes. I experimented with fusion
+of the different data sources to model water flow or erosion on a seamles topography
+which is extremely helpful when the data extents don't match the watershed boundaries.
+This is relevant also for modleing with TL, since our size of the model is limited
+but we want to model the process outside of the model-->
+</section>
+
+<section>
+<h4>The analysis and visualization of
+     density of people captured by webcams<br>
+      (project AMOS, the Archive of Many Outdoor Scenes) </h4>
+<img class="stretch" src="images/AMOS_overview.jpg">
+</section>
+
+
+<section>
+<h2>Tangible Landscape</h2>
+</section>
+<section>
+<h3>Motivation for Tangible Interfaces for GIS</h3>
+<ul>
+    <!-- <li>Tangible User Interfaces (TUI) can helps us experience and better understand data and processes through tangible interaction.</li> -->
+    <li>Interaction through mouse, keyboard and display does not encourage creativity.</li>
+    <li>Manipulating computer models is not intuitive and requires specialized software and training.</li>
+    <li>Collaboration is restricted as typically only one user at a time can navigate and modify models. </li>
+
+
+</ul>
+<img height="200px" src="images/collaboration_computer.JPG">
+<img height="200px" src="images/art_rhino.jpg">
+<!-- </br></br></br> -->
+<!-- <h5>Tangible Landscape is designed to make scientific data,
+   models, and simulations exploratory, engaging, and fun</h5> -->
+</section>
+
+
+<!-- History -->
+<section>
+<h3>The first tangible interface prototypes</h3>
+<img style="margin-bottom:0px" height="250px" src="images/illuminating_clay.png">
+<img style="margin-bottom:0px" height="250px" src="images/sandscape.png">
+<img style="margin-bottom:0px" height="250px" src="images/tangeoms_5_s.jpg">
+<p style="font-size:50%; margin-top:0px">Image source:
+     <a href="http://tangible.media.mit.edu/project/illuminating-clay/">MIT Media Lab</a></p>
+<!-- <img height="250px" src="img/tangeoms_2.jpg"> -->
+<p style="font-size:90%">  <b>Illuminating Clay</b>, <b>Sandscape</b>
+    and <b>Tangible Geospatial Modeling System (TanGeoMS)</b></p>
+
+<p style="font-size:50%">Ishii H., Ratti C., Piper B., Wang Y., Biderman A. and Ben-Joseph E. <a href="http://tmg-trackr.media.mit.edu/publishedmedia/Papers/188-Bringing%20clay%20and%20sand/Published/PDF">
+    "Bringing clay and sand into digital design—continuous tangible user interfaces."</a> BT technology journal 22.4 (2004): 287-299.
+<br>L. Tateosian, H. Mitasova, B. A. Harmon, B. Fogleman, K. Weaver, and R. S. Harmon,
+ <a href="http://baharmon.github.io/publications/tangible_geospatial_modeling.pdf">
+     “TanGeoMS: Tangible Geospatial Modeling System,”</a>
+     IEEE Trans. Vis. Comput. Graph., vol. 16, no. 6, pp. 1605–12, 2010.</p>
+</section>
+
+<section>
+<h3>Kinect-based systems</h3>
+<img height="250px" src="images/augmented_reality_sandbox.jpg">
+<p><b>Augmented Reality Sandbox by KeckCAVES</b>
+<p style="font-size:80%">Expensive laser scanners replaced by low cost Kinect
+<p><small>Image source:
+     <a href="http://idav.ucdavis.edu/~okreylos/ResDev/SARndbox/">http://idav.ucdavis.edu/</a></small></p>
+
+</section>
+
+<!-- Near real time interaction -->
+<section>
+<h3>Tangible Landscape: real-time coupling with GIS</h3>
+<iframe data-autoplay <iframe width="560" height="315" src="https://www.youtube.com/embed/Cd3cCQTGer4?rel=0&amp;showinfo=0;loop=1&amp;playlist=Cd3cCQTGer4" frameborder="0" allowfullscreen></iframe>
+<img height="315px" src="images/system_schema.png">
+<p>Tangible Landscape couples a digital and a physical model through
+     a continuous cycle of 3D scanning, geospatial modeling, and projection.</p>
+</section>
+
+<section>
+    <h3>Research questions (1)</h3>
+<ul class="pl" style="font-size:80%"><li> In order to use real landscapes,
+     we need to link our changes on the physical model to
+ the actual geospatial data. What are the steps and 
+ information we need to <strong>georeference</strong> a model
+  and ensure we run the geospatial analyses at the right location and scale?</li>
+  
+  <li> How the limitations of Kinect and other available scanners
+ in terms of the <strong>resolution, precision and noise</strong> influence the scale of the models and
+ applicability to certain geospatial analyses?
+ Are there ways to compensate for these limitations during the <strong>DEM reconstruction</strong> or
+ the way we design applications?</li>
+
+ </ul>
+</section>
+<section>
+    <h3>Research questions (2)</h3>
+<ul class="pl" style="font-size:80%">
+ <li> Given the available data from Kinect sensor
+what types of <strong>physical interactions</strong> can we use to steer geospatial models
+ and how do we translate these interactions into modified inputs to the models?</li>
+ 
+ <li> What types of geospatial models 
+ can be meaningfully linked with tangible interfaces in terms of
+  <strong>processing speed and input data</strong>?
+ How do we compromise between the realistic setting of the input parameters and
+ the need for real-time feedback and visually engaging results?</li>
+ 
+
+<!-- %  \item What type of constraints does the spatial configuration of the sensor and projector
+%  poses for size and shape of physical models? -->
+ 
+<li> Since physical models cannot be scaled, what are the options
+ to study and interact with <strong>multiscale</strong> processes?</li>
+ </ul>
+</section>
+
+<!-- <section>
+    <h3>Decision making &amp; science communication</h3>
+    <ul>
+        <li>complex models of various geospatial phenomena
+             (urban growth, disease spread)</li>
+        <li>inputs from both scientists and non-experts/experts in other fields</li>
+        <li>need for common platform</li>
+    </ul>
+</section> -->
+<!-- <section>
+    <h3>Geospatial education</h3>
+    <ul>
+        <li>making abstract concepts tangible</li>
+        <li>exploring links and interactions between different geospatial phenomena
+        and how input conditions affect them</li>
+    </ul>
+</section> -->
+
+
+
+<section>
+<h3>Tangible Landscape design</h3>
+<!-- <p style="text-align:left">Tangible Landscape</p> -->
+<ul class="ps" style="font-size:80%">
+<li>supports <strong>wide range of applications</strong> (design, decision making,
+     education) in various domains (geology, landscape design, ecology, ...)</li>
+<li>enables using simple to complex geospatial models and algorithms,
+     and allows scientists to <strong>develop their workflows</strong></li>
+<li>allows for different <strong>interactions</strong> to let user input different data into models
+</li>
+<li>works with landscapes with different geographic <strong>scale and extent</strong></li>
+<li><strong>accessible</strong> financially and without restrictions</li>
+</ul>
+</section>
+
+<!-- <section>
+<h2>Hardware</h2>
+<img class="stretch" src="http://tangible-landscape.github.io/images/system_setup.png">
+</section>
+<section> -->
+<section>
+<h3>Physical setup</h3>
+<table border="0">
+<tr>
+<td><img width="200" src="https://github.com/tangible-landscape/tangible-landscape-media/raw/master/tl_diagrams/projector_configuration/projector_configuration_1.png"></td>
+<td><img width="200" src="https://github.com/tangible-landscape/tangible-landscape-media/raw/master/tl_diagrams/projector_configuration/projector_configuration_2.png"></td>
+<td><img width="200"  src="https://github.com/tangible-landscape/tangible-landscape-media/raw/master/tl_diagrams/projector_configuration/projector_configuration_3.png"></td>
+<td><img width="200"  src="https://github.com/tangible-landscape/tangible-landscape-media/raw/master/tl_diagrams/projector_configuration/projector_configuration_4.png"></td>
+<td><img width="200"  src="https://github.com/tangible-landscape/tangible-landscape-media/raw/master/tl_diagrams/projector_configuration/projector_configuration_5.png"></td>
+</tr>
+</table>
+<p>Sensor properties (resolution, FOV),
+projector properties (resolution, aspect ratio, throw ratio)
+and the physical setup influence the maximum size of the model and precision.
+</section>
+
+<section class="imgtext">
+<h3>Kinect data processing 1: georeferencing</h3>
+<ol>
+<li class="fragment" data-fragment-index="1"><strong>Calibration:</strong> automated correction for tilted scanner
+<li class="fragment" data-fragment-index="2"><strong>Model extraction:</strong> manual bounding box selection, automated edge trimming procedure</li>
+<li class="fragment" data-fragment-index="3"><strong>Georeferencing:</strong> 
+    rotation along Z axis and 3D rotation to correct for tilted scan,
+    horizontal, vertical scaling and translation based on provided DEM</li>
+</ol>
+
+<img class="fragment" data-fragment-index="1" height="140px"  src="images/calibration.png" style="margin-right:50px">
+<img class="fragment" data-fragment-index="2"  height="150px" src="images/extraction.png">
+<img class="fragment" data-fragment-index="2" height="220px" src="images/trimming.png"
+style="margin-left:200px">
+</section>
+
+<section>
+<h3>Kinect data processing 2: DEM reconstruction</h3>
+<ol>
+    <li class="fragment">Point cloud <strong>filtering</strong> to remove invalid points and outliers using neighborhood statistics filter</li>
+    <li class="fragment"><strong>Noise removal</strong> using Moving Least Squares surface reconstruction method </li>
+    <li class="fragment">Raster-based <strong>DEM</strong> reconstruction:
+      <ul>
+          <li>binning with filling empty cells - fast, leaves no data values where Kinect can't see</li>
+          <li>interpolation using regularized spline with tension - slower</li>
+      </ul></li>
+</ol>
+</section>
+
+<section>
+<h2>r.in.kinect</h2>
+<p style="text-align:left">
+GRASS add-on module:
+<ul>
+    <li>written in C++ </li>
+    <li>using open source libraries</li>
+    <ul>
+        <li><strong>GRASS GIS</strong> library</li>
+        <li><strong>Point Cloud Library</strong> (used in computer vision and robotics)</li>
+        <li><strong>libfreenect2</strong> library (open source drivers for Kinect)</li>
+        <li><strong>libfreenect2pclgrabber</strong> by Giacomo Dabisias</li>
+    </ul> 
+</ul>
+</section>
+
+<!-- <section> -->
+<!-- <h2>Software</h2>
+    <img class="stretch" src="https://raw.githubusercontent.com/tangible-landscape/tangible-landscape-media/master/tl_diagrams/software-schema.png">
+</section> -->
+
+
+
+<section class="imgtext">
+<h3>Software</h3>
+<img  src="https://raw.githubusercontent.com/tangible-landscape/tangible-landscape-media/master/tl_diagrams/software-schema.png">
+
+<div style="font-size:80%"><p style="text-align:left">Coupling with GRASS GIS:</p>
+<ul>
+    <li>wide range of analyses + cartography</li>
+    <li>open source, so we can modify it</li>
+    <li>scriptable</li>
+</ul>
+<p> Developed library for modeling
+    <ul>
+        <li>topographic parameters</li>
+        <li>surface processes</li>
+        <li>designing trails</li>
+    </ul>
+</div>
+</section>
+
+<section>
+    <h3>Interfaces</h3>
+<img class="stretch" src="images/TUI_GUI_CLI_horizontal.jpg">
+<p style="text-align:left">
+<span style="margin-left:180px;margin-right:250px">TUI</span>
+<span style="margin-right:300px">GUI</span>
+<span style="margin-left:100px">API</span>
+</section>
+
+
+<section>
+<h3>Interactions</h3>
+<img width="80%" src="images/interactions.png">
+<table width="80%">
+        <col width="22%">
+        <col width="28%">
+        <col width="28%">
+        <col width="22%">
+        <tr>
+            <td style="vertical-align: middle; text-align:center; border-bottom: 0px; padding: 0;">surface
+            <td style="vertical-align: middle; text-align:center; border-bottom: 0px; padding: 0;">points
+            <td style="vertical-align: middle; text-align:center; border-bottom: 0px; padding: 0;">lines
+            <td style="vertical-align: middle; text-align:center; border-bottom: 0px; padding: 0;" >areas
+        </tr>
+</table>
+</section>
+
+<section data-background-image="images/background_interaction_hands.png">
+<h4>Applications: topographic analysis</h4>
+<table style="font-size:80%">
+    <tr><td style="text-align:center;border-bottom: 0px">slope<br/><img width="55%" src="images/slope_after.jpg"></td>
+        <td style="text-align:center;border-bottom: 0px">cut and fill<br/><img width="78%" src="images/diff.jpg"></td>
+        <td style="text-align:center;border-bottom: 0px">erosion<br/><img width="55%" src="images/usped_before.jpg"></td>
+    </tr>
+        
+    <tr style="text-align:center;border-bottom: 0px"><td colspan="3" 
+        style="text-align:center;border-bottom: 0px">landforms<br/>
+        <img width="60%" src="images/geomorphons_draft1.jpg"></td></tr>
+</table>
+</section>
+
+<!-- Solar analysis-->
+<section data-background-image="images/background_interaction_hands.png">
+<h4>Applications: solar analysis</h4>
+<img width="23%" src="images/solar_1.jpg">
+
+<!-- <img width="32%" src="img/solar_3.jpg"> -->
+<img width="23%" src="images/scen1_430_winter.JPG">
+<img width="23%" src="images/scen2_7_summer.jpg">
+<img width="23%" src="images/solar.gif">
+<p>Solar irradiation and cast shadow</p>
+</section>
+
+<section data-background-image="images/background_interaction_hands.png">
+<h4>Applications: hydrology (1)</h4>
+<img width="32%" src="images/tl_coastal_1s.png">
+<img width="32%" src="images/tl_coastal_2s.png">
+<!--<img width="22%" src="img/tl_coastal_3s.png">-->
+<img width="32%" src="images/tl_coastal_4s.png">
+<p style="font-size:90%">Serious game: save houses from coastal flooding by building coastal defenses</p>
+</section>
+
+<section data-background-image="images/background_interaction_hands.png">
+<h4>Applications: hydrology (2)</h4>
+<video  data-autoplay class="stretch" controls>
+<source src="images/scenario1_crop2.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p style="font-size:90%">Lake Raleigh dam break simulation</p>
+</section>
+
+<!-- Fire -->
+<section data-background-image="images/background_interaction_hands.png">
+<h4>Applications: wildfire spread</h4>
+<iframe data-autoplay width="853" height="480" src="https://www.youtube.com/embed/EJc57GFJeZI?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+</section>
+
+
+
+<!-- Visibility analysis -->
+<section data-background-image="images/background_interaction_hands_markers.png">
+<h4>Applications: visibility</h4>
+<iframe data-autoplay width="800" height="420" src="https://www.youtube.com/embed/tGFNHFoHMYM?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+</section>
+
+
+<section data-background-image="images/background_interaction_hands_markers.png">
+<h4>Applications: 3D soil moisture exploration</h4>
+<img height="190px" src="images/subsurface_1.jpg">
+<img height="190px" src="images/subsurface_2.jpg">
+<img height="190px" src="images/subsurface_3.jpg">
+<img width="70%" src="images/cross_section.png">
+</section>
+
+<!-- Trail Planning -->
+<section data-background-image="images/background_interaction_hands_markers.png">
+<h4>Applications: trail planning</h4>
+<img width="32%" src="images/trail_1.jpg">
+<img width="32%" src="images/trail_2.jpg">
+<img width="32%" src="images/trail_4.jpg">
+<p style="font-size:90%">Optimized trail routing between waypoints based on walking time,
+     topography, and cost maps with feedback including trail slopes</p>
+</section>
+
+<!-- Serious gaming with Tangible Landscape: Termites -->
+<section data-background-image="images/background_interaction_markers.png">
+<h4>Applications: termite infestation</h4>
+<img width="45%" src="images/termite_game_2.jpg">
+<img width="45%" src="images/termite_game_3.jpg">
+<p style="font-size:90%">Serious game: Manage the spread of termites across a city by treating city blocks
+using a model of biological invasion in R</p>
+</section>
+
+<section data-background-image="images/background_interaction_markers.png">
+<h4>Applications: Sudden Oak Death</h4>
+<iframe id="muteVideo" data-autoplay  width="800" height="420" src="https://www.youtube.com/embed/dnOhOFHAkEU?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+<p style="font-size:90%">Manage the spread of SOD in California</p>
+</section>
+
+<!-- Futures -->
+<section data-background-image="images/background_interaction_sand_laser.png">
+<h4>Applications: urban growth</h4>
+<p style="font-size:90%">Simulation of urban growth scenarios with FUTURES model
+<video  data-autoplay height="300px" controls muted>
+<source src="images/futures.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+</section>
+
+<section data-background-image="images/background_interaction_all.png">
+    <h4>Tangible Landscape + Immersive Virtual Reality</h4>
+    <iframe data-autoplay width="800" height="420"  src="https://www.youtube.com/embed/pYbpEMjME1Y?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+</section>
+
+<section>
+<h4>Publications</h4>
+<small>
+<ul class="pl">
+    <li>Tonini F., Shoemaker D., <strong>Petrasova A.</strong>, Harmon B., Petras H., Cobb R. C., Mitasova H. and Meentemeyer R. K. (2016).
+        <em>Using tangible geospatial modeling for collaborative problem-solving: a pilot exercise with an invasive plant pathogen</em>. 
+        Submitted to Ecological Modelling.</li>
+    <li>Harmon, B. A., <strong>Petrasova, A.</strong>, Petras, V., Mitasova, H., Meentemeyer, R. K. (2016).
+            <a href="https://github.com/baharmon/isprs-2016/blob/master/isprs_2016.pdf">
+                <em>Tangible Landscape: cognitively grasping the flow of water</em></a>.
+                In The International Archives of the Photogrammetry, Remote Sensing and Spatial Information Sciences.</li>
+    <li><strong>Petrasova, A.</strong>, Harmon, B., Petras, V., Mitasova, H. (2015). <a href="http://link.springer.com/book/10.1007/978-3-319-25775-4"><em>Tangible Modeling with Open Source GIS</em></a>. Springer.
+    <li><strong>Petrasova, A.</strong>, Harmon, B., Mitasova, H., White, J. (2014).  <a href="https://github.com/petrasovaa/soil-visualization-poster/blob/master/Petrasova_soil_poster.pdf"><em>Tangible Exploration of Subsurface Data</em></a>. Poster at AGU 2014.</li>
+    <li><strong>Petrasova, A.</strong>, Harmon, B., Petras, V., Mitasova, H., (2014). 
+         <a href="http://www4.ncsu.edu/~akratoc/publications/Petrasova_GIS-based_modeling.pdf">
+             <em>GIS-based environmental modeling with tangible interaction and dynamic visualization</em></a>.
+              In: Ames, D.P., Quinn, N.W.T., Rizzoli, A.E. (Eds.), Proceedings of the 7th International 
+              Congress on Environmental Modelling and Software, June 15-19, San Diego, California, USA.</li>
+    </ul></small>
+</section>
+<section>
+<h4>Workshops, demos and outreach events</h4>
+ <small>
+ <ul class="pl">
+     <li><strong>Petrasova, A.</strong>, Petras, V., Harmon, B. A., Mitasova, H. (2016, May 2).
+     <em><a href="https://grasswiki.osgeo.org/wiki/Using_GRASS_GIS_through_Python_and_tangible_interfaces_(workshop_at_FOSS4G_NA_2016)">
+         Using GRASS GIS through Python and tangible interfaces</a></em>.
+      Workshop conducted at FOSS4G North America 2016, Raleigh, NC.</li>
+      <li>Harmon, B., <strong>Petrasova, A.</strong>, Petras, V., Mitasova H., Vukomanovic, J., Tonini F., Meentemeyer, R. (2016)
+          <em><a href="https://www.lib.ncsu.edu/event/coffee-viz-serious-gaming-tangible-landscape">
+              Coffee &amp; Viz - Serious Gaming with Tangible Landscape</a></em></li>
+      <li>NCSU GeoForAll laboratory, <em>Tangible Landscape at the State of the Sciences: Museum Takeover (2016)</em>,
+      Nature Research Center at the North Carolina Museum of Natural Sciences.</li>
+      
+     <li>NCSU GeoForAll laboratory, <em><a href="https://github.com/tangible-landscape/grass-tangible-landscape/wiki/Community#projects">
+         Interactive model with coastal flooding serious game at Bald Head Island Conservancy (2016)</a></em> </li>
+ </ul></small>
+
+</section>
+
+
+
+
+
+<!-- ============================ -->
+
+<section>
+<h3>Urban growth modeling with FUTURES and Tangible Landscape</h3>
+<img class="stretch" src="images/FUTURES_asheville_model.png">
+</section>
+
+<section>
+    <h3>Research questions (1)</h3>
+<ul class="pl" style="font-size:80%">
+    <li> FUTURES as a complex spatio-temporal model requires considerable
+         <strong>expertise and training</strong> for correct data preparation and running the model
+as it was intended. How can we <strong>facilitate</strong> urban growth modeling with
+FUTURES and achieve more <strong>reproducible</strong> results while at the same time
+keep the model <strong>flexible</strong> and not oversimplify the modeling process?</li>
+
+<li>Previous urbanization studies using original FUTURES model limited the
+study extent to several counties. Can we study <strong>large scale</strong> urbanization
+with FUTURES at the same level of detail as the previous studies but
+still using commonly available computing infrastructure?</li></ul>
+</section>
+
+<section>
+<h3>Goals</h3>
+<ul class="ps" style="font-size:80%">
+<li>make FUTURES open source
+    <ul>
+        <li>describing models in journal articles does not ensure reproducible results</li>
+        <li>peer-review leads to better code and intended model behavior</li>
+        <li>model can be extended or adapted and used in different context</li>
+        
+    </ul>
+</li>
+<!-- <li></li> -->
+</ul>
+</section>
+
+<section class="textimg">
+<h3>FUTURES</h3>
+
+<div style="max-width: 70% !important;">
+<p style="font-size:80%">FUTure Urban-Regional Environment Simulation</p>
+<ul class="ps" style="font-size:80%;">
+<li style="margin: 10px">stochastic, patch-based land change model</li>
+<li style="margin: 10px">simulates urban growth</li>
+<li style="margin: 10px">accounts for location, quantity, and pattern of change</li>
+<li style="margin: 10px">positive feedbacks (new development attracts more development)</li>
+<li style="margin: 10px">allows spatial non-stationarity</li>
+</ul></div>
+<img style="max-width: 28% !important;" src="https://petrasovaa.github.io/ISPRS-2016-presentation/img/schema.png">
+<img style="max-width: 28% !important;" width="90%" src="images/PGA.gif">
+
+</section>
+
+
+<section>
+<h3>Integration in GRASS GIS</h3>
+<p style="text-align: left">Why choose GRASS GIS and not keep it standalone?
+<ul>
+<li style="margin: 10px">all needed GIS functions at hand</li>
+<li style="margin: 10px">efficient I/O libraries</li>
+<li style="margin: 10px">able to process large datasets</li>
+<li style="margin: 10px">modular architecture: modules in C/C++ and Python</li>
+<li style="margin: 10px">automatically generated CLI and GUI</li>
+<li style="margin: 10px">infrastructure for online manual pages and distribution of binaries</li>
+<li style="margin: 10px">maintained by community and developers</li>
+</ul>
+<aside class="notes">
+
+</aside>
+</section>
+
+<!-- 
+<section>
+<h2>Open source FUTURES</h2>
+<p style="text-align: left">To go beyond experimental prototype we needed to make FUTURES:
+<ul style="margin-top:1em">
+<li>more efficient and scalable</li>
+<li>as easy to use as possible for a wider audience</li>
+<li>open source and maintainable in the long run</li>
+</ul>
+<p>&#8658; new FUTURES GRASS GIS add-on
+     <a href="https://grass.osgeo.org/grass70/manuals/addons/r.futures.html">r.futures</a>
+
+<aside class="notes">
+</aside>
+</section> -->
+
+<section>
+    <img class="stretch" src="images/grass_futures_diagram.png">
+</section>
+<section>
+    <h4>DEMAND submodel</h4>
+    <ul class="ps" style="font-size:80%">
+    <li>projects the rate of per capita land consumption for each simulated year and each subregion</li>
+    <li>curve fitting using simple linear regression and by solving non-linear least squares problem (SciPy)</li>
+    <li>can select best curve for each subregion based on residuals</li>
+    <br>
+    <img width="18%" src="images/r_futures_demand_plot_exponential.png">
+    <img width="18%" src="images/r_futures_demand_plot_linear.png">
+    <img width="18%" src="images/r_futures_demand_plot_logarithmic.png">
+    <img width="18%" src="images/r_futures_demand_plot_logarithmic2.png">
+    <img width="18%" src="images/r_futures_demand_plot_exp_approach.png">
+</section>
+
+<section class="textimg">
+    <h4>Development pressure</h4>
+    <div style="max-width: 65% !important;">
+    <ul class="ps" style="font-size:75%">
+    <li>important predictors of where development is likely to happen</li>
+    <li>computed as a distance decay function of neighboring developed cells</li>
+    <li>moving window analysis with custom designed matrix filters</li>
+    <li>precomputing the matrix of distances results in faster processing</li>
+    <li>memory efficient</li>
+</div>
+<div style="max-width: 29% !important;">
+$p_i = \sum_{k=1}^{n_i}{\frac{cell_k}{d^{\gamma}_{ik}}}$
+<br>
+<img style="margin-left:0px"  width="90%" src="images/FUTURES_devpressure_3D.png">
+</div>
+</section>
+
+<section>
+    <h4>POTENTIAL submodel</h4>
+    <ul class="pl" style="font-size:90%">
+    <li>multilevel logistic regression for development suitability surface</li>
+    <li>package lme4 for fitting generalized linear mixed-effects models and
+         package MuMIn for automatic model selection</li>
+    <br>
+    <img style="margin-left:250px" height="200px" src="images/potential.png">
+    <img style="margin-left:50px" height="200px" src="images/FUTURES_suitability.png">
+</section>
+
+
+<section>
+    <h4>Patch growing algorithm</h4>
+    <ul class="ps" style="font-size:80%">
+    <li>stochastically allocates seeds for new development across the development suitability surface</li>
+    <li>use of efficient read and write libraries speeds up initialization</li>
+    <li>dynamic memory allocation to enable flexible number of predictors and computational extent</li>
+    <li>more suitable data types to reduce memory consumption</li>
+    <li>replaced a suboptimal linear search method with binary search</li>
+    <li>parallelized by  (a) running stochastic runs in parallel
+        or (b) splitting by counties, running those in parallel and finally merge back</li>
+    <br>
+<table border="0"><tbody>
+    <tr>
+        <th>FUTURES version</th>
+        <th>memory</th>
+        <th>1 run</th>
+        <th>250 runs</th>
+    </tr>
+    <tr >
+        <td>original</td>
+        <td>1.7 GB</td>
+        <td>60 s</td>
+        <td>4 h 10 min</td>
+    </tr>
+    <tr >
+        <td>r.futures</td>
+        <td>0.86 GB</td>
+        <td>19 s</td>
+        <td>1 h 20 min</td>
+    </tr></tbody>
+</table>
+<p style="text-align:center;font-size:30%"> Asheville Metropolitan Region, laptop with 64-bit Ubuntu 14.04 LTS,
+ Intel Core i7-4760HQ $@$ 2.10GHz using 1 CPU and running on external hard drive
+</section>
+
+<section>
+    <h4>Patch calibration</h4>
+    <ul class="ps" style="font-size:80%">
+    <li>calibrate the input patch compactness and size to
+         match the simulated patterns with the observed patterns from reference period</li>
+    <li>distributions of patch shapes and sizes is compared using chi-square distance</li>
+    <li>parallelized</li>
+    <img style="margin-left:250px" height="200px" src="images/compactness_low.png">
+    <img style="margin-left:100px" height="200px" src="images/compactness_high.png">
+</section>
+
+
+
+<!-- <section>  -->
+<!-- <h3>r.futures: GUI</h3>
+<img src="https://petrasovaa.github.io/ISPRS-2016-presentation/img/GUI.gif">
+</section>
+<section>
+<h3>r.futures: CLI</h3>
+<pre><code data-trim data-noescape>
+r.futures.pga -s subregions=counties developed=urban_2011 \
+   output=final demand=demand.csv discount_factor=0.1 compactness_mean=0.1 \
+   predictors=road_dens_perc,forest_smooth_perc,dist_to_water_km,dist_to_protected_km \
+   devpot_params=potential.csv development_pressure=devpressure_0_5 \
+   n_dev_neighbourhood=30 gamma=0.5 patch_sizes=patches.txt num_neighbors=4 output=final
+ </code></pre>
+</section> -->
+
+<section>
+    <h3>Research questions (2)</h3>
+<ul class="pl" style="font-size:80%">
+<li>How can we <strong>integrate</strong> FUTURES and similar complex spread simulations
+such as SOD with tangible geospatial interface? What types of human-computer
+ <strong>interactions</strong> can we employ to allow intuitive exploration of the
+model behavior and scenarios?</li></ul>
+</section>
+
+
+
+<!-- <section>
+<h3>r.futures: TUI</h3>
+TUI: Tangible User Interface
+<img class="stretch" src="https://petrasovaa.github.io/ISPRS-2016-presentation/img/TUI.jpg">
+</section> -->
+
+<section>
+<iframe width="1280" height="720" src="https://www.youtube.com/embed/SeBoGwSqmRM?rel=0" frameborder="0" allowfullscreen></iframe>
+</section>
+<section>
+    <h3>Scenario modeling</h3>
+<em>Constraint</em> parameter: zones with decreased probability of development
+$$P_{new} = P . C, \quad C \in \langle 0, 1\rangle $$
+
+<br>
+<em>Stimulus</em> parameter: zones with increased probability of development
+$$P_{new} = P + S - P.S, \quad S \in \langle 0, 1 \rangle$$
+</section>
+
+<section>
+    <h3>Future work</h3>
+    <ul>
+        <li>how to deal with stochastic processes?</li>
+        <li>adaptive management</li>
+        
+    </ul>
+</section>
+
+<section>
+<h4>Publications</h4>
+<ul class="pl" style="font-size:90%">
+    <li><strong>Petrasova, A.</strong>, Petras, V., Van Berkel, D., Harmon, B. A., Mitasova, H., and Meentemeyer, R. K. (2016)
+        <a href="http://www.int-arch-photogramm-remote-sens-spatial-inf-sci.net/XLI-B7/953/2016/isprs-archives-XLI-B7-953-2016.pdf">
+    <em>Open Source Approach to Urban Growth Simulation</em></a>.
+ Int. Arch. Photogramm. Remote Sens. Spatial Inf. Sci., XLI-B7, 953-959.</li>
+ 
+ <li> Pickard, B. R., Van Berkel, D., <strong>Petrasova, A.</strong>, Meentemeyer, R. K. 
+     <em>Future patterns of urbanization reveal trade-offs among ecosystem.</em> Accepted to Landscape Ecology.</li>
+ 
+<li><strong>Petrasova, A.</strong>, Petras, V., Shoemaker, D. A., Dorning, M. A., &amp;
+     Meentemeyer, R. K. (2015).
+     <a href=""> The integration of land change modeling framework FUTURES into GRASS GIS 7 (2015)</a>
+          In: Brovelli M. A., Minghini M., Negretti M., eds. Geomatics Workbooks. FOSS4G Europe, Como</li>
+</ul><br>
+<p style="text-align:left">Planned publication of new version of FUTURES and connection with Tangible Landscape
+</section>
+<section>
+    <h4>Workshop</h4>
+    <p style="font-size: 80%"><strong>Petrasova A.</strong>, Petras V., Van Berkel D., Dorning M.,  Meentemeyer R., Mitasova H. (2016).
+    <em><a href="https://grasswiki.osgeo.org/wiki/Workshop_on_urban_growth_modeling_with_FUTURES">
+         Spatio-temporal Modeling with Open Source GIS: Application to Urban Growth Simulation using FUTURES</a></em>.
+          Full-day workshop at US-IALE 2016 Annual Meeting, April 3, 2016, Asheville, NC, USA.</p>
+    <iframe class="stretch" src="https://grasswiki.osgeo.org/wiki/Workshop_on_urban_growth_modeling_with_FUTURES#FUTURES_simulation"></iframe>
+</section>
+
+<section>
+    <h3>Future work?</h3>
+    <ul class="pl"><li>Computational steering of water flow and other fluxes using path sampling library</li>
+        <li>Seamless fusion of real and virtual DEMs for multi-scale water flow and erosion modeling</li>
+        <li>Coupled tangible geospatial modeling and robotics for collaborative design</li>
+    </ul>
+</section>
+<section>
+    <h3>Timeline</h3>
+<table>
+    <tr><td><strong>this semester</strong></td><td>work on FUTURES paper</td></tr>
+    <tr><td><strong>November</strong></td><td>short paper on the DEM fusion</td></tr>
+    <tr><td><strong>December</strong></td><td>written preliminary exam</td></tr>
+    <tr><td><strong>January - February</strong></td><td>oral preliminary exam</td></tr>
+</table>
+</section>
+
+
+<!-- This is a generated file. Do not edit. -->
+        </div>  <!-- slides -->
+
+    </div>  <!-- reveal -->
+
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.js"></script>
+
+        <script>
+
+            // Full list of configuration options available here:
+            // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                // Display controls in the bottom right corner
+                controls: false,
+
+                // Display a presentation progress bar
+                progress: true,
+                
+                center: true,
+                
+                // Display the page number of the current slide
+                slideNumber: false,
+
+                // Enable the slide overview mode
+                overview: true,
+
+                // Turns fragments on and off globally
+                fragments: true,
+
+                // The "normal" size of the presentation, aspect ratio will be preserved
+                // when the presentation is scaled to fit different resolutions. Can be
+                // specified using percentage units.
+                 width: 1260,
+                // height: 700,
+                
+                // Factor of the display size that should remain empty around the content
+                margin: 0.05,  // increase?
+
+                // Bounds for smallest/largest possible scale to apply to content
+                minScale: 0.5,
+                maxScale: 5.0,
+
+                theme: Reveal.getQueryHash().theme,  // available themes are in /css/theme
+                transition: Reveal.getQueryHash().transition || 'none', // default/cube/page/concave/zoom/linear/fade/none
+
+                // Push each slide change to the browser history
+                history: true,
+                // Enable keyboard shortcuts for navigation
+                keyboard: true,
+
+                // Vertical centering of slides
+                center: true,
+
+                // Enables touch navigation on devices with touch input
+                touch: true,
+
+                // Loop the presentation
+                loop: false,
+                // Flags if the presentation is running in an embedded mode,
+                // i.e. contained within a limited portion of the screen
+                embedded: false,
+
+                // Number of milliseconds between automatically proceeding to the
+                // next slide, disabled when set to 0, this value can be overwritten
+                // by using a data-autoslide attribute on your slides
+                autoSlide: 0,
+
+                // Stop auto-sliding after user input
+                autoSlideStoppable: true,
+
+                // Enable slide navigation via mouse wheel
+                mouseWheel: false,
+
+                // Hides the address bar on mobile devices
+                hideAddressBar: true,
+
+                // Opens links in an iframe preview overlay
+                previewLinks: false,
+
+                // Transition speed
+                transitionSpeed: 'default', // default/fast/slow
+
+                // Transition style for full page slide backgrounds
+                backgroundTransition: 'none', // default/none/slide/concave/convex/zoom
+
+                // Number of slides away from the current that are visible
+                viewDistance: 3,
+
+                // Parallax background image
+                //parallaxBackgroundImage: '', // e.g. "'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg'"
+
+                // Parallax background size
+                //parallaxBackgroundSize: '' // CSS syntax, e.g. "2100px 900px"
+                chalkboard: { 
+        		// optionally load pre-recorded chalkboard drawing from file
+            		src: "chalkboard.json",
+            	},
+                // Optional libraries used to extend on reveal.js
+                dependencies: [
+                    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+                    { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+                    { src: 'plugin/math/math.js', async: true },
+                    { src: 'plugin/chalkboard/chalkboard.js' }
+                ],
+                keyboard: {
+            	    67: function() { RevealChalkboard.toggleNotesCanvas() },	// toggle notes canvas when 'c' is pressed
+            	    66: function() { RevealChalkboard.toggleChalkboard() },	// toggle chalkboard when 'b' is pressed
+            	    46: function() { RevealChalkboard.clear() },	// clear chalkboard when 'DEL' is pressed
+            	     8: function() { RevealChalkboard.reset() },	// reset chalkboard data on current slide when 'BACKSPACE' is pressed
+            	    68: function() { RevealChalkboard.download() },	// downlad recorded chalkboard drawing when 'd' is pressed
+            	},
+            });
+            // mute SOD video
+            var myVideo =  iframe.getElementById('muteVideo'); 
+            myVideo.mute();
+        </script>
+
+    </body>
+</html>
